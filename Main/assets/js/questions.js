@@ -7,6 +7,8 @@ var questionBox =document.querySelector("#question");
 var choices = document.querySelector("#choices");
 let feedback = document.querySelector("#feedback");
 let score = document.querySelector("#totalScore");
+var scoreIndex = [];
+var storedScore = JSON.parse(localStorage.getItem("playerData"));
 //var inputStringEl = document.getElementById("inputString");
 // var firstAnswer = document.querySelector("#answer0");
 // var secondAnswer= document.querySelector("#answer1");
@@ -146,29 +148,38 @@ function clearQuestions(){
 }
 function saveScore(){
  var highScores = JSON.parse(window.localStorage.getItem("highScores"))||[] 
- var testScore = {
-  score: totalScore, //initials : ??
-  initials:"GG"
+ var quizScore = {
+  score: totalScore, initials : inputStringEl
+  
 }
-highScores.push(testScore)
-window.localStorage.setItem("highScores",JSON.stringify(highScores) )
+//highScores.push(quizScore)
+//window.localStorage.setItem("highScores",JSON.stringify(highScores) )
 
 
-//  var inputStringEl = document.getElementById("inputString");
-//  console.log(totalScore) 
-//  console.log(inputStringEl, "element")
-//  var initials = inputStringEl.value.trim();
-//  console.log(initials) 
-//  localStorage.setItem('inputString' + 'totalScore', JSON.stringify(inputStringEl));
-//  console.log("saveScore function called")
+var inputStringEl = document.getElementById("inputString");
+ console.log(totalScore) 
+ console.log(inputStringEl, "element")
+ var initials = inputStringEl.value.trim();
+ console.log(initials) 
+ localStorage.setItem('inputString' + 'totalScore', JSON.stringify(inputStringEl));
+ console.log("saveScore function called")
+ location.href = "./highscores.html";
  }
-
-
-function endQuiz(){
+function scorePage(){
+  var playerData = { initials : inputStringEl, score: totalScore} 
+  scoreIndex.push(playerData);
+  localStorage.setItem("highScores", JSON.stringify(scoreIndex));
+  location.href = "./highscores.html";
+};
 //end quiz if timer runs out or last question is answered
-//for loop that creates an element for every obj in highscores array. display initials+score
+function endQuiz(){
 
-}
+  clearQuestions()
+
+//for loop that creates an element for every obj in highscores array. display initials+score
+// let scoreIndex = [];
+// for (let i = 0; )
+ }
 function checkAnswer(e){
   let selectedAnswer = e.target;
   let rightAnswer =  questions[questionArrayOrder[quesIndex]].answer;
@@ -191,6 +202,9 @@ function checkAnswer(e){
     
     
 }
+setTimeout(function(){
+  feedback.textContent = ""
+},1000);
   
   clearQuestions()
   

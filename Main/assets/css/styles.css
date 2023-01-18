@@ -54,7 +54,9 @@ header{
 }
 
 h1,
-h2{
+h2,
+ol,
+li{
    padding:4em;
    margin-block:2px;
    font-size:x-large;
