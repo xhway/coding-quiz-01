@@ -9,19 +9,14 @@ let feedback = document.querySelector("#feedback");
 let score = document.querySelector("#totalScore");
 var scoreIndex = [];
 var storedScore = JSON.parse(localStorage.getItem("playerData"));
-//var inputStringEl = document.getElementById("inputString");
-// var firstAnswer = document.querySelector("#answer0");
-// var secondAnswer= document.querySelector("#answer1");
-// var thirdAnswer= document.querySelector("#answer2");
-// var fourthAnswer= document.querySelector("#answer3");
+
 
 let totalScore = 0;
 let quesIndex = 0;
 var timeExpired; 
 let questionArrayOrder;
 var saveButton = document.getElementById("save-button");
-//var stores = inArray();
-//var inputField = document.getElementById('inputString');
+
 // list of all questions, choices, and answers
 var questions = [
   {
@@ -63,15 +58,6 @@ var lastQuestion = questions.length - 1;
 
 
 
-//Score render
-// function renderScore(){
-//   score.Container.style.display = "block";
-//   let score = Math.round(100 * score / ques.length);
-// }
-
-//
-
-//
 function countdown() {
 }
 function questionsOrder(arr){
@@ -158,17 +144,6 @@ function saveScore(){
   
 }
 
-
-
-// var inputStringEl = document.getElementById("inputString");
-//  console.log(totalScore) 
-//  console.log(inputStringEl, "element")
-// //  var initials = inputStringEl.value.trim();
-//  console.log(initials) 
-//  localStorage.setItem('inputString' + 'totalScore', JSON.stringify(inputStringEl));
-//  console.log("saveScore function called")
-//  location.href = "./highscores.html";
-//  }
 function scorePage(){
   var playerData = { initials : inputStringEl, score: totalScore} 
   scoreIndex.push(playerData);
@@ -180,9 +155,7 @@ function endQuiz(){
 
   clearQuestions()
 
-//for loop that creates an element for every obj in highscores array. display initials+score
-// let scoreIndex = [];
-// for (let i = 0; )
+
  }
 function checkAnswer(e){
   let selectedAnswer = e.target;
@@ -226,12 +199,7 @@ setTimeout(function(){
     saveScore();
   })
 }
-  //array to store initials
-  //inputStringEl.on('button', handleInitialForm);
 
-   //btn.addEventListener('click', )
-
-  //saveButton.onclick = saveScore
 
 
 
@@ -242,7 +210,7 @@ setTimeout(function(){
 
 
     
-      //}
+   
       
   
 
