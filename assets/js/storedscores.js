@@ -9,12 +9,7 @@ clearHighScoreBtn.addEventListener("click", function(){
 var storedScore = JSON.parse(localStorage.getItem("highScores"));
  var highScoreArea = document.querySelector("#highScoreList");
  
-// //  function scorePage(){
-// //     var playerData = { initials : inputStringEl, score: totalScore} 
-// //     scoreIndex.push(playerData);
-// //     localStorage.setItem("playerData", JSON.stringify(scoreIndex));
-   
-// //   };
+\
 function scorePage(){
      if (storedScore !== null)
                var scoreList = document.createElement("ol");
@@ -34,7 +29,3 @@ function scorePage(){
 
  scorePage()
 
-// clearBtn.addEventListener("click", function(){
-//     highScoreArea.innerHTML= " ";
-//     window.localStorage.clear();
-// });
