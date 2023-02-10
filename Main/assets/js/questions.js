@@ -147,28 +147,32 @@ function clearQuestions(){
   }
 }
 function saveScore(){
- var highScores = JSON.parse(window.localStorage.getItem("highScores"))||[] 
- var quizScore = {
-  score: totalScore, initials : inputStringEl
+ var highScores = JSON.parse(window.localStorage.getItem("highScores"))||[]; 
+ var initials = initialsInput.value.trim();
+ if(initials !==""){
+  var newScore = {
+    score, initials
+  };
+  
+ }
   
 }
-//highScores.push(quizScore)
-//window.localStorage.setItem("highScores",JSON.stringify(highScores) )
 
 
-var inputStringEl = document.getElementById("inputString");
- console.log(totalScore) 
- console.log(inputStringEl, "element")
- var initials = inputStringEl.value.trim();
- console.log(initials) 
- localStorage.setItem('inputString' + 'totalScore', JSON.stringify(inputStringEl));
- console.log("saveScore function called")
- location.href = "./highscores.html";
- }
+
+// var inputStringEl = document.getElementById("inputString");
+//  console.log(totalScore) 
+//  console.log(inputStringEl, "element")
+// //  var initials = inputStringEl.value.trim();
+//  console.log(initials) 
+//  localStorage.setItem('inputString' + 'totalScore', JSON.stringify(inputStringEl));
+//  console.log("saveScore function called")
+//  location.href = "./highscores.html";
+//  }
 function scorePage(){
   var playerData = { initials : inputStringEl, score: totalScore} 
   scoreIndex.push(playerData);
-  localStorage.setItem("highScores", JSON.stringify(scoreIndex));
+  localStorage.getItem("highScores", JSON.stringify(scoreIndex));
   location.href = "./highscores.html";
 };
 //end quiz if timer runs out or last question is answered
@@ -218,13 +222,16 @@ setTimeout(function(){
    
 
   }
+  saveBtn.addEventListener("click", function(){
+    saveScore();
+  })
 }
   //array to store initials
   //inputStringEl.on('button', handleInitialForm);
 
    //btn.addEventListener('click', )
 
-  saveButton.onclick = saveScore
+  //saveButton.onclick = saveScore
 
 
 

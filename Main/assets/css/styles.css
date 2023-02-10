@@ -34,6 +34,9 @@ body{
     text-align: center;
     
 }
+p{
+    margin: 45px;
+}
 .q-text{
 display: flex;
 justify-content:center;
